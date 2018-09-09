@@ -1,0 +1,881 @@
+\documentclass[10pt,a5paper]{article}
+%\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+
+%opcionális:
+\usepackage[margin=0.5in]{geometry}
+%\usepackage[margin=1in]{geometry}
+
+\usepackage{systeme}
+\usepackage[pdftex]{graphicx}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{indentfirst}
+%\author{Apagyi Dávid\\ \normalsize{apagyi.david@gmail.com}}
+\title{Fizika alapfogalmak}
+\date{2018. szeptember 8.}
+
+
+% \DeclareMathSizes{16}{30}{16}{16}
+
+
+\newcounter{alapfogalom}%[section]
+\newenvironment{af}[1][]{\refstepcounter{alapfogalom}\par\medskip
+   \noindent \textbf{\thealapfogalom. #1:} \addcontentsline{toc}{subsection}{{#1}} \rmfamily}{\smallskip}
+
+\usepackage[many]{tcolorbox}
+\usetikzlibrary{decorations.pathreplacing}
+\newtcolorbox{leftbrace}{%
+    enhanced jigsaw, 
+    breakable, % allow page breaks
+    frame hidden, % hide the default frame
+    overlay={%
+        \draw [
+            decoration={brace,amplitude=0.5em},
+            decorate,
+            ultra thick,
+        ]
+        % right line
+        (frame.north west)--(frame.south west);
+    },
+    % paragraph skips obeyed within tcolorbox
+    parbox=false,
+}
+
+\renewcommand\labelitemi{-}
+
+\begin{document}
+%\newpage $\;$
+\maketitle
+
+\renewcommand*\contentsname{Tartalomjegyzék}
+\tableofcontents
+\newpage
+
+\section{Bevezetés}
+
+\begin{af}[Természet]
+A létező anyagi világ.
+\end{af}
+\begin{af}[Természettudományok]
+A természetre vonatkozó ismeretek rendszere.
+\end{af}
+\begin{af}[Természettudományok célja]
+A jelenségek törvényszerűségeinek felismerése és alkalmazása, az emberi tevékenység előremozdítása, valamint új jelenségek előrejelzése.
+\end{af}
+\begin{af}[Fizika]
+Az anyag általános tulajdonságait, törvényeit vizsgálja.
+\end{af}
+\begin{af}[Megfigyelés]
+Tárgyak, jelenségek, folyamatok jellemzőinek spontán nyomonkövetése.
+\end{af}
+\begin{af}[Kísérlet]
+Egy jelenség előzetes terv alapján történő szándékos előidézése, és pontos megfigyelése, egy alkalommal egy dologra összpontosítva.
+\end{af}
+\begin{af}[Modellalkotás]
+Egy kép megalkotása, amellyel az anyagok viselkedését megmagyarázzuk úgy, hogy már egy ismert dologhoz hasonlítunk.
+\end{af}
+\begin{af}[Mérés]
+Méréskor azt állapítjuk meg, hogy a mérendő mennyiség hányszorosa az egységül választottnak.
+\end{af}
+\begin{af}[Kinematika]
+A kinematika leírja a mozgásokat.
+\end{af}
+\begin{af}[Dinamika]
+A dinamika a mozgások okait vizsgálja.
+\end{af}
+\begin{af}[Energetika]
+Az energetika a mozgásokkal kapcsolatos energiákkal foglalkozik.
+\end{af}
+
+
+
+\newpage
+\section{Kinematika}
+
+\begin{af}[Pálya]
+Az a vonal, amelyen a test a mozgása közben végighalad.
+\end{af}
+\begin{af}[Út]
+A pálya azon részének hossza, amelyen a mozgást vizsgáljuk.
+\end{af}
+\begin{af}[Elmozdulás]
+$\Delta r$, a helyvektor megváltozása.
+\end{af}
+\begin{af}[A mechanika feladata]
+A mechanika feladata a hely megadása idő függvényében.
+\end{af}
+\begin{af}[Sebesség]
+\begin{itemize}
+    \item $v=\dfrac{\Delta s}{\Delta t}$
+    \item $\left[v\right]=\dfrac{m}{s}$
+    \item Számértéke megmutatja az egységnyi idő alatt befutott elmozdulást.
+\end{itemize}
+\end{af}
+\begin{af}[Az EVE mozgás kritériumai] %$\vec{v}=\text{áll.}$, azaz:
+\begin{itemize}
+    \item pálya: egyenes
+    \item $v=\text{áll.}$: egyenletes
+\end{itemize}
+\end{af}
+\begin{af}[Sebességvektor]
+\begin{itemize}
+    \item $\vec{v}=\dfrac{\Delta\vec{r}}{\Delta t}$
+    \item $\left[|\vec{v}|\right]=\dfrac{m}{s}$
+    \item Megmutatja az egységnyi idő alatt bekövetkező elmozdulást.
+    \item Iránya: elmozdulás irányú.
+\end{itemize}
+\end{af}
+\begin{af}[Gyorsulás]
+\begin{itemize}
+    \item $a=\dfrac{\Delta v}{\Delta t}$
+    \item $\left[a\right]=\dfrac{m}{s^2}$
+    \item Számértéke megmutatja az egységnyi idő alatt bekövetkező sebességváltozást.
+\end{itemize}
+\end{af}
+\begin{af}[Az EVEV mozgás kritériumai] %$\vec{v}=\text{áll.}$, azaz:
+\begin{itemize}
+    \item pálya: egyenes
+    \item $a=\text{áll.}$: egyenletesen változó
+\end{itemize}
+\end{af}
+\begin{af}[Gyorsulásvektor]
+\begin{itemize}
+    \item $\vec{a}=\dfrac{\Delta\vec{v}}{\Delta t}$
+    \item $\left[|\vec{a}|\right]=\dfrac{m}{s^2}$
+    \item Megmutatja az egységnyi idő alatt bekötvetkező elmozdulást.
+    \item Iránya: sebességváltozás irányú.
+\end{itemize}
+\end{af}
+\begin{af}[Szabadesés]
+\begin{itemize}
+    \item Kritériumai:
+    \begin{itemize}
+        \item $v_0=0$
+        \item $a=g$
+    \end{itemize}
+    \item Számolás:
+    \begin{itemize}
+        \item $\Delta y=\dfrac{g}{2}\Delta t^2$
+        \item $v=g\Delta t$
+    \end{itemize}
+\end{itemize}
+\end{af}
+\begin{af}[Hajítás lefelé]
+\begin{itemize}
+    \item Kritériumai:
+    \begin{itemize}
+        \item $v_0\not=0$
+        \item $a=g$
+    \end{itemize}
+    \item Számolás:
+    \begin{itemize}
+        \item $\Delta y=v_0\Delta t+\dfrac{g}{2}\Delta t^2$
+        \item $v=v_0+g\Delta t$
+    \end{itemize}
+\end{itemize}
+\end{af}
+\begin{af}[Hajítás felfelé]
+\begin{itemize}
+    \item Kritériumai:
+    \begin{itemize}
+        \item $v_0\not=0$
+        \item $a=-g$
+    \end{itemize}
+    \item Számolás:
+    \begin{itemize}
+        \item $\Delta y=v_0\Delta t-\dfrac{g}{2}\Delta t^2$
+        \item $v=v_0-g\Delta t$
+    \end{itemize}
+\end{itemize}
+\end{af}
+\begin{af}[Periodikus mozgás] Periodikos mozgásról beszélünk, ha a test ugyanazt a mozgásszakaszt ugyanúgy ismételgeti.
+\end{af}
+\begin{af}[Anyagi pont]
+Anyagi pontról beszélünk, ha a test ún. tiszta haladó mozgást végez, vagy méretei elhanyagolhatóak az elmozduláshoz, illetve a közte és más testek közötti távolsághoz képest.
+\end{af}
+\begin{af}[Periódusidő]
+\begin{itemize}
+    \item $T=\dfrac{\Delta t}{N}$
+    \item %mértékegysége:
+    $\left[T\right]=s$
+    \item Megmutatja egy periódus vagy körülfordulás megtételéhez szükséges időt.
+\end{itemize}
+\end{af}
+\begin{af}[Fordulatszám]
+\begin{itemize}
+    \item $n=\dfrac{N}{\Delta t}$
+    \item %mértékegysége:
+    $\left[n\right]=\dfrac{1}{s}$
+    \item Megmutatja egy egységnyi idő alatt bekövetkező körülfordulások számát.
+\end{itemize}
+\end{af}
+\begin{af}[Szögsebesség]
+\begin{itemize}
+    \item kiszámítás: $\omega=\dfrac{\Delta \varphi}{\Delta t}$
+    \item %mértékegysége:
+    $\left[\omega\right]=\dfrac{(rad)}{s}=\dfrac{1}{s}$
+    \item Megmutatja egy egységnyi idő alatt bekövetkező szögelfordulást.
+\end{itemize}
+\end{af}
+\begin{af}[Mozgás]
+Mozgásról beszélünk, ha az anyagi pont helye megváltozik a választott vonatkoztatási rendszerben.
+\end{af}
+
+
+
+\newpage
+\section{Anyagi pont dinamikája}
+\begin{af}[Tehetetlenség törvénye (Newton I.)]
+\begin{itemize}
+    \item[a)] Minden test megtartja nyugalmi állapotát vagy EVE mozgását mindaddig, míg más testek vagy mezők ennek megváltoztatására nem kényszerítik.
+    \item[b)] MÁV mindig KH eredményeként jön létre.
+    \item[c)] KH hiányában a testek EVE mozgást végeznek.
+\end{itemize}
+\end{af}
+\begin{af}[Inerciarendszer]
+Olyan vonatkoztatási rendszer, melyben érvényes Newton I. törvénye.
+\end{af}
+\begin{af}[Galilei-féle relativitási elv]
+A Földhöz vagy bármilyen más IR-hez képest állandó sebességgel haladó vonatkoztatási rendszer is IR.
+\end{af}
+\begin{af}[Rugalmas kölcsönhatás]
+A kölcsönhatás megszünte utána a testek visszanyerik eredeti állapotukat.
+\end{af}
+\begin{af}[Tömeg] A tehetetlenség mértéke.
+\begin{itemize}
+    \item jele: $m$
+    \item $\left[m\right]=kg$
+\end{itemize}
+\end{af}
+\begin{af}[Dinamikai tömegmérés elve]
+Egy test tömege akkor $N$-szeres egy másik test tömegéhez viszonyítva ha vele párkölcsönhatásba hozva a sebességváltozása $\dfrac{1}{N}$-szeres.
+\end{af}
+\begin{af}[Lendület(vektor)]
+\begin{itemize}
+    \item $\vec{I}=m\vec{v}$
+    \item mértékegysége: $\left[I\right]=kg\dfrac{m}{s}$
+\end{itemize}
+\end{af}
+\begin{af}[Zárt (test)rendszer] Zárt testrendszerről beszélünk, ha a testek környezettel való kölcsönhatásaitól eltekinthetünk.
+\end{af}
+\begin{af}[Lendületmegmaradás törvénye]
+\begin{itemize}
+    \item[] LMT$_1$: Zárt testrendszerben a testek lendületváltozásainak vektori összege nullvektor.
+    $$\sum_{i=1}^n\Delta I_i=\vec{0}$$
+    \item[] LMT$_2$: Zárt testrendszerben a testek lendületének vektori összege állandó.
+    $$\sum_{i=1}^n\ I_i=\text{áll.}$$
+\end{itemize}
+
+\end{af}
+\begin{af}[Erő(vektor)]
+\begin{itemize}
+    \item $\vec{F}=\dfrac{ I}{\Delta t}$
+    \item $\left[F\right]=\dfrac{kg\frac{m}{s}}{s}=kg\dfrac{m}{s^2}=N$
+    \item Megmutatja, az egységnyi idő alatt bekövetkező lendületváltozást.
+    \item Iránya lendületváltozás irányú.
+\end{itemize}
+\end{af}
+\begin{af}[Támadáspont]
+A test azon pontja, ahol az erőhatás éri. (kiterjedt test)
+\end{af}
+\begin{af}[Hatásvonal]
+Az erő támadáspontján átfektetett, az erővel párhuzamos egyenes.
+\end{af}
+\begin{af}[Newton II. törvénye]
+Ha egy $m$ tömegű testre $\vec{F}$ erő hat, akkor az a test $\vec{a}=\dfrac{\vec{F}}{m}$ gyorsulással fog mozogni.
+$$\vec{a}=\dfrac{\vec{F}}{m}$$
+\end{af}
+\begin{af}[Newton III. törvénye]
+(Hatás-ellenhatás törvénye, kölcsönhatás-törvény) \\
+Az egy KH.-ban fellépő erők azonos nagyságúak, ellentétes irányításúak, közös hatásvonalúak és különböző testekre hatnak.
+$$\vec{F}_{2\xrightarrow{}1}=-\vec{F}_{1\xrightarrow{}2}$$
+\end{af}
+\begin{af}[Newton IV. törvénye]
+Az egy testre ható erők összegezhetők vektorilag, és helyettesíthetők egy ún. eredő erővel.
+$$\sum_{i=1}^n\vec{F_i}=\vec{F_e}$$
+\end{af}
+\begin{af}[Súlyerő]
+Az az erő, ammelyel a test húzza a felfüggesztést és/vagy nyomja az alátámasztást.
+\end{af}
+\begin{af}[Erőtörvény]
+Az erőhatást kifejtő környezet és a test jellemzőivel megadott matematikai kifejezés, amellyel az erő nagyságát és irányát adhatjuk meg.
+\end{af}
+\begin{af}[Rugóállandó]
+\begin{itemize}
+    \item $D=\dfrac{F_r}{\Delta l}$
+    \item $\left[D\right]=\dfrac{N}{m}$
+    \item Megmutatja, hogy egységnyi megnyúlás esetén mekkore erőt fejt kia rugó.
+\end{itemize}
+\end{af}
+\begin{af}[Tapadási erő]
+Az egymáshoz képest nyugvó felületek által egymásra kifejtett erő érintőirányú összetevője.
+\end{af}
+\begin{af}[Súrlódási erő]
+Az egymáshoz képest mozgó felületek által egymásra kifejtett erő sebességgel ellentétes irányú összetevője.
+\end{af}
+\begin{af}[Kényszererő]
+Kényszererő esetén, mivel az erőkifejtés elhanyagolható deformációval jár, a pályaalak előre meghatározott.
+\end{af}
+\begin{af}[Geostacionárius műholdak]
+Olyan mesterséges holdak, melyek mindig a Föld ugyanazon pontja felett tartózkodnak.
+\end{af}
+
+
+\newpage
+\section{Pontrendszerek dinamikája}
+\begin{af}[Pontrendszer]
+Egymással kölcsönhatásban lévő pontszerű testek rendszere.
+\end{af}
+\begin{af}[Külső erők]
+A rendszerhez nem tartozó testek fejtik ki.
+\end{af}
+\begin{af}[Belső erők]
+A rendszer tagjai fejtik ki egymásra.
+\end{af}
+\begin{af}[Zárt pontrendszer]
+Zárt pontrendszerről beszélünk, ha a külső erők eredője zérus.
+\end{af}
+\begin{af}[Tömegközéppont]
+Minden pontrendszernek (és kiterjedt testnek) van legalább egy olyan pontja, amely kh. hiányában EVE mozgástvégez, ez a kitüntetett pont a tömegközéppont.
+\end{af}
+\begin{af}[Tömegközéppont-tétel]
+Pontrendszer tömegközéppontja úgy mozog, mintha benne a pontrendszer teljes tömege egyesítve volna, és rá a külső erők eredője hatna.
+$$m_{ö}a_{xT}=\sum F_{ixk}$$
+\end{af}
+\begin{af}[Merev test]
+Olyan pontrendszer, amelyben a részecskék egymáshoz viszonyított távolsága és helyzete nem változik.
+\end{af}
+\begin{af}[Forgatónyomaték]
+\begin{itemize}
+    \item Az erőhatást jellezmi forgatóhatás szempontjából.
+    \item $M=Fk$
+\end{itemize}
+\end{af}
+\begin{af}[Erőkar]
+Az erő hatásvonalának forgástengelytől mért távolsága.
+\end{af}
+\begin{af}[Erőpár]
+Az ugyanarra a merev testre ható két erőt, amelyek ellentétes irányúak, párhuzamos hatásvonalúak és egyenlő nagyságúak, erőpárnak nevezzük. Az erőpár nem helyettesíthető egyetlen erővel.
+\end{af}
+\begin{af}[Erőpár forgatónyomatéka]
+Erőpár forgatónyomatéka egyenlő az egyik erő nagyságának és a két erő hatásvonala közötti távolságnak a szorzatával, forgástengelytől függetlenül.
+$$M=Fd$$
+\end{af}
+
+
+
+\newpage
+\section{Tömegpont mozgásának energetikai leírása}
+\begin{af}[Munkavégzés]
+Munkavégzésről beszlünk, ha erőhatás következtében elmozdulás jön létre.
+\begin{itemize}
+    \item mértéke: munka
+    \item jele: $W$
+    \item $\left[W\right]=J$
+\end{itemize}
+\end{af}
+\begin{af}[Energia]
+Testek, mezők változást okozó képessége.
+\begin{itemize}
+    \item jele: $E$
+    \item $\left[E\right]=J$
+    \item állapotot jellemez
+    \item skaláris mennyiség
+    \item viszonylagos mennyiség
+    \item kh. közben változik
+    \item megmaradási törvény érvényes rá
+    \item kvantumos (adagos)
+\end{itemize}
+\end{af}
+\begin{af}[Energiatartalom mértéke]
+Annak a munkavégzésnek a mértéke, amellyel az adott állapot kialakítható egy önkényesen kiválasztott alapállapotból kiindulva.
+\end{af}
+\begin{af}[Munkatétel]
+Pontszerű test mozgási energiájának megváltozása megegyezik a testre ható erők eredőjének munkájával (avagy az erők munkájának összegével).
+$$\Delta E_m=W_e$$
+\end{af}
+\begin{af}[Konzervatív erő (kh.)]
+Az az erő (kh.), melynek munkája függetlena befutott úttól, csak a kezdő és a végpont helyzete a meghatározó.
+\end{af}
+\begin{af}[Mechanikai energiamegmaradás törvénye]
+Egy testrendszer mechanikai energiája állandó, ha tagjai között csak konzervatív kölcsönhatások jelennek meg.
+$$\sum E_{mech}=\text{áll.}$$
+\end{af}
+\begin{af}[Teljesítmény]
+\begin{itemize}
+    \item $P=\dfrac{W}{\Delta t}$
+    \item $\left[P\right]=\dfrac{J}{s}=W$
+    \item Megmutatja az egységnyi idő alatt végzett munkát.
+\end{itemize}
+\end{af}
+\begin{af}[Egyszerű gépek]
+Olyan eszközök, melyek az általuk kifejtett erő nagyságát, irányát és támadáspontját számunkra kedvező módon befolyásolják.
+\end{af}
+\begin{af}[Emelő]
+Olyan merev rúd, amely velamely pontja, mint tengely körül elfordulhat.
+\end{af}
+\begin{af}[Csigák]
+Olyan korongok, melyek peremén bemélyedés található és valamely pontjuk, mint tengely körül elfordulnak.
+\end{af}
+\begin{af}[Kepler I. törvénye]
+A bolygók ellipszis alakú pályán keringenek, amelyeknek egyik fókuszpontjában a Nap áll.
+\end{af}
+\begin{af}[Kepler II. törvénye]
+A Naptól a bolygóhoz húzott vezérsugár egyenlő időközök alatt egyenlő területeket súrol.
+\end{af}
+\begin{af}[Kepler III. törvénye]
+A bolygók keringési időinek négyzetei úgy aránylanak egymáshoz, mint a bolygópályák fél nagytengelyeinek (pályasugarainak) köbei.
+$$\dfrac{T_1^2}{T_2^2}=\dfrac{a_1^3}{a_2^3}$$
+\end{af}
+
+
+
+\newpage
+\section{Folyadékok mechanikája}
+\begin{af}[Folyadékok modellje]
+Nagyszámú, apró, keményfalú golyók halmaza, melyek rendezetlen, gördülő mozgásukkal szorosan, de nem hézagmentesen töltik ki a teret. Közelítéskor taszító, távolításkor és alaphelyzetben rövid hatótávolságú vonzó kh. jelenik meg.
+\end{af}
+\begin{af}[Pascal törvénye]
+A folyadék felszínére kifejtett erő által okozott nyomás a folyadékban minden helyen, minden irányban azonos mértékben jelenik meg.
+\end{af}
+\begin{af}[Nyomás]
+\begin{itemize}
+    \item $p=\dfrac{F}{A_\bot}$
+    \item $\left[p\right]=\dfrac{N}{m^2}=Pa$
+    \item Megmutatja az egységnyi erőre merőleges felületen megjelenő erőt.
+\end{itemize}
+\end{af}
+\begin{af}[Hidrosztatikai nyomás]
+A folyadék súlyából származó nyomás.
+\end{af}
+\begin{af}[Közlekedő edény]
+Felül nyitott, alul csővel összekötött edények, melyekben a folyadék szabadon áramolhat.
+\end{af}
+\begin{af}[Légnyomás]
+A levegő súlyából származó nyomás.
+\end{af}
+\begin{af}[Arkhimédesz törvénye]
+A folyadékba merülő testre ható felhajtóerő nagysága megegyezik az általa kiszorított folyadék súlyával.
+\end{af}
+\begin{af}[Kohéziós erő (kh.)]
+Valamely anyag azonos részecskéi között működő vonzóerő. (víz-víz hidrogénkötés, Hg-Hg fémkötés)
+\end{af}
+\begin{af}[Adhéziós erő (kh.)]
+Egymással érintkező, különböző anyagok részecskéi között működő vonzóerő. (kh.) 
+\end{af}
+\begin{af}[Felületi feszültség (energetikai)]
+\begin{itemize}
+    \item $\alpha=\dfrac{\Delta E}{\Delta A}$
+    \item $\left[\alpha\right]=\dfrac{J}{m^2}$
+    \item Megmutatja, hogy a hártya felületének egységnyivel való növelése mekkore energiatöbbletet jelent.
+\end{itemize}
+\end{af}
+\begin{af}[Felületi feszültség (erőtani)]
+\begin{itemize}
+    \item $\alpha=\dfrac{F_{fel}}{\Delta l}$
+    \item $\left[\alpha\right]=\dfrac{N}{m}$
+    \item Megmutatja a felületi réteg által a felületet határoló egységnyi hosszúságú vonaldarabra ható erő nagyságát.
+\end{itemize}
+\end{af}
+\begin{af}[Folytonossági (vagy kontinuitási) egyenlet]
+$$A_1v_1=A_2v_2$$
+\end{af}
+\begin{af}[Bernoulli-törvény]
+$$p+\frac{1}{2}\varrho v^2+\varrho gh=\text{áll.}$$
+\end{af}
+
+\newpage
+\section{Elektrosztatika}
+\begin{af}[Vezetők]
+Olyan anyagok, melyekben elmozdulásra képes töltéshordozók találhatóak.
+\end{af}
+\begin{af}[Vezetők csoportosítása]
+\begin{enumerate}
+    \item[a)] Elsőfajú vezetők: elektronok mozognak bennük.
+    \item[b)] Másodfajú vezetők: ionok mozognak bennük.
+\end{enumerate}
+\end{af}
+\begin{af}[Töltés mennyiségi jelentése]
+Az elektromos állapot mennyiségi jellemzésére szolgál.
+\end{af}
+\begin{af}[1 C töltés]
+$1\ C$ az a töltés, amely a vákuumban tőle $1\ m$ távolságra lévő szintén $1\ C$ töltésre $9\cdot10^9N$ erővel hat.
+\end{af}
+\begin{af}[Elektromos térerősség]
+\begin{itemize}
+    \item $\vec{E}=\dfrac{\vec{F}}{q}$
+    \item $\left[E\right]=\dfrac{N}{C}$
+    \item Megmutatja az egységnyi pozitív töltésre ható erőt.
+    \item Iránya megegyezik a pozitív töltésre ható erő irányával.
+\end{itemize}
+\end{af}
+\begin{af}[Elektromos erővonalak minőségi jelentése]
+Az elektromos erővonalak olyan görbék, melyeknek bármely pontjához húzott érintő az ottani $\vec{E}$ tartóegyenese.
+\end{af}
+\begin{af}[Elektromos erővonalak mennyiségi jelentése]
+Az erővonalképet úgy kell megrajzolni, hogy ahol a térerősség $E$ nagyságú, akkor ott a vonalakra merőlegesen felvett $A_\bot$ felületen $\Psi=EA_\bot$ számú erővonal haladjon keresztül.
+\end{af}
+\begin{af}[Feszültség]
+\begin{itemize}
+    \item $U_{AB}=\dfrac{W_{AB}}{q}$
+    \item $\left[U_{AB}\right]=\dfrac{J}{C}=V$
+    \item Megmutatja, mekkora munkát végez az elektromos tér, miközben az egységnyi pozitív töltéshordozó A pontból B pontba jut.
+\end{itemize}
+\end{af}
+\begin{af}[Potenciál]
+\begin{itemize}
+    \item $U(P)=\dfrac{W_{P\infty}}{q}$
+    \item $\left[U\right]=\dfrac{J}{C}=V$
+    \item Megmutatja, mekkora munkát végez az elektromos tér, miközben az egységnyi pozitív töltéshordozó P pontból a végtelenbe jut.
+\end{itemize}
+\end{af}
+\begin{af}[Elektromos megosztás]
+Olyan fémes vezetőn lezajló jelenség, melynek során egy külső, úgynevezett megosztó töltés hatására a fém ellentétes oldalain ellentétes töltés jelenik meg. ($\sum Q=0$)
+\end{af}
+\begin{af}[Elektromos megosztás hatásai]
+\begin{itemize}
+    \item Az erővonalak a külső felületre merőlegesen helyezkednek el.
+    \item A fém belsejében a térerősség zérus. ($\vec{E}=\vec{0}$)
+    \item A töltések a külső felületen helyezkednek el.
+    \item A fém minden pontja ekvipotenciális.
+\end{itemize}
+\end{af}
+\begin{af}[Kapacitás]
+\begin{itemize}
+    \item $C=\dfrac{\Delta Q}{\Delta U}$
+    \item $\left[C\right]=\dfrac{C}{V}=F$
+    \item Megmutatja az egységnyi potenciálnöveléshez szükséges töblettöltés mértékét. 
+\end{itemize}
+\end{af}
+\begin{af}[Eredő kapacitás]
+Annak a kondenzátornak a kapacitása, amelyen ugyanakkora töltés hatására, ugyanakkora feszültség jelenik meg, mint az eredeti kapcsoláson.
+\end{af}
+\begin{af}[Párhuzamos kapcsolás törvényszerűségei]
+\begin{itemize}
+    \item Töltések összegződnek: $Q=Q_1+Q_2$
+    \item Feszültségek megegyeznek: $U_1=U_2=U$
+    \item Eredő kiszámítása: $C_e=\sum_{i=1}^n{C_i}$
+\end{itemize}
+\end{af}
+\begin{af}[Soros kapcsolás törvényszerűségei]
+\begin{itemize}
+    \item Töltések megegyeznek: $Q_1=Q_2=Q$
+    \item Feszültségek összegződnek: $U=U_1+U_2$
+    \item Eredő kiszámítása: $\dfrac{1}{C_e}=\sum_{i=1}^n\dfrac{1}{C_i}$
+\end{itemize}
+\end{af}
+
+
+\newpage
+\section{Hőtani folyamatok}
+\begin{af}[Lineáris hőtágulási együttható]
+\begin{itemize}
+    \item $\alpha=\dfrac{\Delta l}{l_0\Delta t}$
+    \item $\left[\alpha\right]=\dfrac{m}{m^\circ C}=\dfrac{1}{^{\circ}C}$
+    \item Megmutatja az egységnyi hosszúságú rúd hőmérsékletének egységnyivel való változtatása mekkora hosszúságváltozást eredményez.
+\end{itemize}
+\end{af}
+\begin{af}[Térfogati hőtágulási együttható]
+\begin{itemize}
+    \item $\beta=\dfrac{\Delta V}{V_0\Delta t}$
+    \item $\left[\beta\right]=\dfrac{1}{^{\circ}C}$
+    \item Megmutatja az egységnyi térfogatú folyadék hőmérsékletének egységnyivel való változtatása mekkora térfogatváltozást eredményez.
+\end{itemize}
+\end{af}
+\begin{af}[Gázok modellje]
+Nagyszámú, apró, gyors mozgású golyók halmaza, melyek a teret rendezetlen mozgásukkal (röpködésükkel) lazán töltik ki, miközben ütköznek egymással és a tárolóedény falával.
+\end{af}
+\begin{af}[Izoterm folyamat]
+\begin{itemize}
+    \item $N=\text{áll.}$
+    \item $t=\text{áll.}$
+\end{itemize}
+\end{af}
+\begin{af}[Izobár folyamat]
+\begin{itemize}
+    \item $N=\text{áll.}$
+    \item $p=\text{áll.}$
+\end{itemize}
+\end{af}
+\begin{af}[Izochor folyamat]
+\begin{itemize}
+    \item $N=\text{áll.}$
+    \item $V=\text{áll.}$
+\end{itemize}
+\end{af}
+\begin{af}[Boyle-Mariotte-törvény]
+Állandó mennyiségű ideális gáz izotermikus állapotváltozása során a gáz nyomásának és térfogatának szorzata állandó.
+$$pV=\text{áll.}$$
+\end{af}
+\begin{af}[Abszolút hőmérsékleti skála]
+\begin{itemize}
+    \item Alappontja a hőmérséklet elvi alsó határa.
+    \item Az egységek megegyeznek a Celsius-skála egységeivel.
+\end{itemize}
+\end{af}
+\begin{af}[Gay-Lussac I.]
+Állandó mennyiségű ideális gáz izobár állapotváltozása során a gáz térfogata és abszolút hőmérséklete egymással egyenesen arányos.
+$$\dfrac{V}{T}=\text{áll.}$$
+\end{af}
+\begin{af}[Gay-Lussac II.]
+Állandó mennyiségű ideális gáz izochor állapotváltozása során a gáz nyomása és abszolút hőmérséklete egymással egyenesen arányos.
+$$\dfrac{p}{T}=\text{áll.}$$
+\end{af}
+\begin{af}[Gáztörvény]
+A gáz kettő vagy több állapotát leíró állapotjelzők kapcsolata.
+\end{af}
+\begin{af}[Általános gáztörvény]
+Állandó mennyiségű ideális gáz tetszőleges állapotváltozása során a nyomás és térfogat szorzata egyenesen arányos a gáz abszolút hőmérsékletével.
+$$\dfrac{pV}{T}=\text{áll.}$$
+\end{af}
+\begin{af}[Állapotegyenlet]
+A gáz egy adott állapotát leíró paraméterek kapcsolata.
+\end{af}
+\begin{af}[Belső energia]
+A halmazt alkotó részecskék energiáinak összege.
+$$E_b=\sum\varepsilon_{i\:mozg}+\sum\varepsilon_{i\:kh}$$
+\end{af}
+\begin{af}[Hőközlés]
+\begin{itemize}
+    \item Rendezetlen úton történő energiaközlés.
+    \item jele: $Q$
+\end{itemize}
+\end{af}
+\begin{af}[Munkavégzés]
+\begin{itemize}
+    \item Rendezett úton történő energiaközlés.
+    \item jele: $W$
+\end{itemize}
+\end{af}
+\begin{af}[Hőtan I. főtétele]
+Egy halmaz belső energiája termikus és/vagy mechanikai kölcsönhatással változtatható meg. Mértéke a közölt hő és/vagy a környezet munkájának összegével egyezik meg.
+$$\Delta E_b=Q+W_k$$
+\end{af}
+\begin{af}[Izotermikus folyamatok hőtani jellemzése]
+\begin{itemize}
+    \item $Q=W_{gá}$
+    \item A gázzal közölt hő teljes egészében tágulási munkára fordítódik.
+\end{itemize}
+\end{af}
+\begin{af}[Izobár folyamatok hőtani jellemzése]
+\begin{itemize}
+    \item $Q=\Delta E+W_t$
+    \item A közölt hő egy része növeli a belső energiát, egy másik része pedig tágulási munkára fordítódik.
+\end{itemize}
+\end{af}
+\begin{af}[Izochor folyamatok termodinamikai jellemzése]
+\begin{itemize}
+    \item $Q=\Delta E$
+    \item A közölt hő teljes egészében a belső energiát növeli.
+\end{itemize}
+\end{af}
+\begin{af}[Adiabatikus folyamatok termodinamikai jellemzése]
+\begin{itemize}
+    \item $\Delta E=W_k$
+    \item A környezet munkája teljes egészében növeli a belső energiát.
+\end{itemize}
+\end{af}
+\begin{af}[Hőkapacitás]
+\begin{itemize}
+    \item $C=\dfrac{Q}{\Delta T}$
+    \item $\left[C\right]=\dfrac{J}{K}$
+    \item Megmutatja az egységnyi hőmérsékletváltozás létrehozásához szükséges hőközlés mértékét.
+\end{itemize}
+\end{af}
+\begin{af}[Fajhő]
+\begin{itemize}
+    \item $c=\dfrac{C}{m}=\dfrac{\frac{Q}{\Delta T}}{m}=\dfrac{Q}{m\Delta T}$
+    \item $\left[c\right]=\dfrac{J}{kgK}$
+    \item Megmutatja az egységnyi tömegű halmaz hőmérsékletének egységnyivel való változtatása mekkore hőközlést igényel.
+\end{itemize}
+\end{af}
+\begin{af}[Mólhő]
+\begin{itemize}
+    \item $c^*=\dfrac{C}{n}=\dfrac{\frac{Q}{\Delta T}}{n}=\dfrac{Q}{n\Delta T}$
+    \item $\left[c^*\right]=\dfrac{J}{molK}$
+    \item Megmutatja az egységnyi anyagmennyiségű halmaz hőmérsékletének egységnyivel való változtatása mekkore hőközlést igényel.
+\end{itemize}
+\end{af}
+\begin{af}[Szabadsági fok]
+\begin{itemize}
+    \item Az energiatárolás független lehetőségeinek száma. (Ahány négyzetes tag szerepel az energia kifejezésében.)
+    \item jele: $f$
+\end{itemize}
+\end{af}
+\begin{af}[Ekvipartíció tétele]
+$T$ egyensúlyi hőmérsékletű halmazban minden részecske minden szabadsági fokára $\dfrac{1}{2}kT$ energia jut.
+$$\varepsilon_x=\dfrac{1}{2}kT$$
+\end{af}
+\begin{af}[Hőtan II. főtétele]
+Zárt anyaghalmazban önmagától olyan változások mennek végbe, melyeknek során az egy szabadsági fokra jutó energiák kiegyenlítődnek.\\
+(\textit{A halmaz rendetlenebbé válik.}) \\
+(\textit{Nő az entrópiája.})
+\end{af}
+\begin{af}[Kristályos, szilárd anyagok modellje]
+Nagyszámú, apró, gyorsmozgású golyók halmaza, melyek a teret szabályos rendben, szorosan töltik ki, miközben helyhez kötött rezgőmozgást végeznek. Közelítéskor erős taszító, távolításkor és alaphelyzetben rövid hatótávolságú, erős vonzó kölcsönhatás jelenik meg.
+\end{af}
+\begin{af}[Olvadás]
+Olvadásról beszélünk, ha a kristályos anyag folyamatos energiaközlés hatására egy jól
+meghatározott állandósult hőmérsékleten (olvadáspont) folyadék halmazállapotúvá válik. Ekkor a közölt hő nem a hőmozgásra, hanem a részecskék közötti kölcsönhatások fellazítására fordítódik.
+\end{af}
+% \begin{af}[Olvadáspont]
+% Az a hőmérséklet ($t_o$), amelyen az olvadás végbemegy.
+% \end{af}
+\begin{af}[Olvadáshő]
+\begin{itemize}
+    \item $L_o=\dfrac{Q}{m}$
+    \item $\left[L_o\right]=\dfrac{J}{kg}$
+    \item Megmutatja az előzőleg olvadáspontjára felmelegített egységnyi tömegű anyag megolvasztásához mennyi hő szükséges.
+\end{itemize}
+\end{af}
+\begin{af}[Párolgás]
+Olyan jelenség, melynek során a folyadék felszínén lévő nagyobb energiájú részecskék folyamatos energiaközlés hatására kiszakadnak a folyadékból és szabad állapotúvá válnak, azaz gáz halmazállapot jön létre. Ekkor a közölt hő a részecskék közötti kölcsönhatások megszüntetésére fordítódik.
+\end{af}
+\begin{af}[Párolgáshő]
+\begin{itemize}
+    \item %definíció:
+    $L_p=\dfrac{Q}{m}$
+    \item $\left[L_p\right]=\dfrac{J}{kg}$
+    \item Megmutatja az egységnyi tömegű folyadék változatlan hőmérsékleten történő elpárologtatásához mennyi hő szükséges.
+\end{itemize}
+\end{af}
+\begin{af}[Forrás]
+A forrás olyan jelenség, melynek során a folyadék belsejében lévő alacsonyabb energiájú részecskék folyamatos energiaközlés hatására egy állandósult hőmérsékleten (forráspont) társaiktól elszakadva szabad állapotúvá válnak, azaz, gáz halmazállapot jön létre. Ekkor a közölt hő a részecskék közötti kölcsönhatások megszüntetésére fordítódik.
+\end{af}
+\begin{af}[Forráshő]
+\begin{itemize}
+    \item %definíció:
+    $L_f=\dfrac{Q}{m}$
+    \item $\left[L_f\right]=\dfrac{J}{kg}$
+    \item Megmutatja az egységnyi tömegű, előzőleg forráspontjára felmelegített folyadék elforralásához szükséges hőközlés mértékét.
+\end{itemize}
+\end{af}
+
+
+\newpage
+\section{Egyenáram, mágneses mező}
+\begin{af}[Elektromos áram]
+Töltéshordozók rendezett mozgása (áramlása).
+\end{af}
+\begin{af}[Áramerősség]
+\begin{itemize}
+    \item %definíció: 
+    $I=\dfrac{Q}{\Delta t}$
+    \item %mértékegysége:
+    $\left[I\right]=\dfrac{C}{s}=A$
+    \item Megmutatja az egységnyi idő alatt a vezető teljes keresztmetszetén átáramló töltés mennyiségét.
+    \item Iránya a pozitív töltéshordozók mozgásának iránya.
+\end{itemize}
+\end{af}
+\begin{af}[Fogyasztó]
+Az az eszköz vagy berendezés, amelyben elektromos áram hatására céljainknak megfelelő változások jönnek létre.
+\end{af}
+\begin{af}[Ellenállás]
+\begin{itemize}
+    \item %definíció:
+    $R=\dfrac{U}{I}$
+    \item %mértékegysége:
+    $\left[R\right]=\dfrac{V}{A}=\Omega$
+    \item Megmutatja az egységnyi áramerősség kialakításához szükséges feszültséget.
+\end{itemize}
+\end{af}
+\begin{af}[Fajlagos ellenállás]
+\begin{itemize}
+    \item %definíció:
+    $\varrho=\dfrac{RA}{l}$
+    \item %mértékegysége$_1$:
+    $\left[\varrho\right]=\dfrac{\Omega m^2}{m}=\Omega m$
+    \item %mértékegysége$_2$:
+    $\left[\varrho\right]=\dfrac{\Omega mm^2}{m}=\Omega m\cdot10^{-6}$
+    \item Megmutatja az egységnyi hosszúságú és keresztmetszetű vezető ellenállását.
+\end{itemize}
+\end{af}
+\begin{af}[Eredő ellenállás]
+Olyan helyettesítő ellenállás, amelyre ugyanakkora feszültséget kapcsolva, ugyanakkora áram folyik, mint az eredeti áramkörben.
+\end{af}
+\begin{af}[Soros kapcsolás]
+\begin{enumerate}
+    \item[a)] $I_1=I_2=I_3$ \\
+    Az áramerősség az áramkör minden pontján ugyanakkora.
+    \item[b)] $U_1+U_2=U$ \\
+    Az egyes áramköri elemekre eső feszültségek összege megegyezik az áramforrás feszültségével.
+    \item[c)] ${R_e}=\sum{{R_i}}$ \\
+    Az eredő ellenállás az egyes ellenállások összegeként adható meg.
+\end{enumerate}
+\end{af}
+\begin{af}[Párhuzamos kapcsolás]
+\begin{enumerate}
+    \item[a)] $U_1=U_2=U$ \\
+    Az egyes áramköri elemeken mérhető feszültség megegyezik az áramforrás feszültségével.
+    \item[b)] $I=I_1+I_2$ \\
+    A mellékágakban folyó áramerősségek összege megegyezik a főág áramerősségével.
+    \item[c)] $\dfrac{1}{R_e}=\sum{\dfrac{1}{R_i}}$ \\
+    Az eredő ellenállás reciproka megegyezik az egyes ellenállások reciprokának összegével.
+\end{enumerate}
+\end{af}
+\begin{af}[Csomópont]
+Az áramkör azon pontjai, ahol legalább 3 vezető fut össze.
+\end{af}
+\begin{af}[Kirchhoff I. törvénye]
+Egy csomópontban az áramerősségek algebrai összege zérus.
+$$\sum_{cs}I_i=0$$
+\end{af}
+\begin{af}[Hurok]
+Ágak önmagukba visszafutó láncolata.
+\end{af}
+\begin{af}[Kirchhoff II. törvénye]
+Egy irányított hurokra az ohmikus feszültségesések és az áramforrások feszültségének előjeles összege zérus.
+$$\sum_h{I_iR_i}+\sum_hU_{0i}=0$$
+\end{af}
+
+
+\newpage
+\section{Magnetosztatika}
+\begin{af}[Mágneses tér]
+Áramvezető által keltett, áramvezetőre ható tér.
+\end{af}
+\begin{af}[Mágneses indukció]
+\begin{itemize}
+    \item %definíció: 
+    $B=\dfrac{M_{max}}{NIA}$
+    \item %mértékegysége$_1$: 
+    $\left[B\right]=\dfrac{Nm}{Am^2}=\dfrac{N}{Am}=T$
+    \item %mértékegysége$_2$: 
+    $\left[B\right]=\dfrac{Nm}{Am^2}=\dfrac{J}{Am^2}=\dfrac{VAs}{Am^2}=\dfrac{Vs}{m^2}=T$
+    \item Megmutatja az egységnyi mágneses nyomatékú magnetométerre ható maximális forgatónyomatékot.
+    \item Iránya az egyensúlyi helyzetben lévő magnetométer pozitív normálisának iránya.
+\end{itemize}
+\end{af}
+\begin{af}[Mágneses indukcióvonalak minőségi jelentése]
+Olyan görbék, melyek bármely pontjába húzott érintő az ottani $\vec{B}$ vektor tartóegyenese.
+\end{af}
+\begin{af}[Mágneses indukcióvonalak mennyiségi jelentése]
+Az indukcióvonal-képet úgy kell megrajzolni, hogy ahol az indukció $B$ nagyságú, ott a merőlegesen felvett $A_\bot$ felületen $\Phi=BA_\bot$ számú indukcióvonal haladjon keresztül.
+\end{af}
+\begin{af}[Forráserősség]
+$A$ zárt felületre összegezzük az $EA_\bot$ szorzatokat. (zárt felület teljes fluxusa)
+$$N_E=\varphi_{ö}=\sum_{A}{EA}_\bot$$
+\end{af}
+\begin{af}[Maxwell I. törvénye]
+A $V$ térfogat forráserőssége megegyezik a térfogatba zárt töltések algebrai összegének $\dfrac{1}{\epsilon_0}$-szorosával.
+$$N_E=\dfrac{1}{\epsilon_0}\sum Q_i$$
+\end{af}
+\begin{af}[Örvényerősség]
+Egy tetszőleges irányított $g$ zárt görbe által határolt felület örvényerőssége az $\vec{E}$ és $\Delta\vec{s}$ vektorok skaláris szorzatának összegével egyezik meg.
+\[Ö_E=\sum_{g}^{\circ} \vec{E}\Delta\vec{s}\]
+\end{af}
+\begin{af}[Maxwell II. törvénye]
+Az elektrosztatikus tér örvénymentes.
+$$Ö_{E}=0$$
+\end{af}
+
+\newpage
+\section{Rezgések és hullámok}
+\newpage
+\par $\;$
+
+\end{document}
+
